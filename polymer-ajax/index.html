@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import"
+          href="../bower_components/polymer-ajax/polymer-ajax.html">
+  </head>
+  <body>
+    <!-- note that the params attribute MUST be double quoted json -->
+    <polymer-ajax url="https://gdata.youtube.com/feeds/api/videos"
+                  params='{"q":"football", "alt": "json"}'
+                  handleAs="json">
+    </polymer-ajax>
+
+    <template repeat="{{response.feed.entry}}">
+      <div>{{title.$t}}</div>
+    </template>
+
+    <script>
+    document.addEventListener('WebComponentsReady', function () {
+      console.log('WebComponentsReady!');
+
+      var ajax = document.querySelector('polymer-ajax');
+      ajax.addEventListener('polymer-response', function (e) {
+        console.log(e.target.response);
+        var tmpl = document.querySelector('template');
+        tmpl.model = {
+          response: e.target.response
+        };
+      }, false);
+
+      ajax.go();
+    }, false);
+    </script>
+  </body>
+</html>

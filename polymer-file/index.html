@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import"
+          href="../bower_components/polymer-file/polymer-file.html">
+  </head>
+  <body>
+    <polymer-file id="file" readas="dataurl"></polymer-file>
+    <script>
+    'use strict';
+    document.addEventListener('WebComponentsReady', function (e) {
+      var file = document.querySelector('#file');
+      file.addEventListener('polymer-result', function (e) {
+        var dataURI = e.detail.result;
+        var decoded = window.atob(dataURI.split(',')[1]);
+        console.log('the dataURI is: ', dataURI);
+        console.log('the decoded value is: ', decoded);
+      });
+
+      file.blob = new Blob(['zerp!'], { type: 'text/plain' });
+      file.read();
+    });
+    </script>
+  </body>
+</html>

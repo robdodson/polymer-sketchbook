@@ -1,0 +1,19 @@
+{
+  "name": "polymer-ui-ratings",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.1.3",
+    "polymer-ui-theme-aware": "Polymer/polymer-ui-theme-aware#0.1.3"
+  },
+  "version": "0.1.3",
+  "homepage": "https://github.com/Polymer/polymer-ui-ratings",
+  "_release": "0.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.3",
+    "commit": "09f3184a509ace320fa788e7b9af172b03b39be0"
+  },
+  "_source": "git://github.com/Polymer/polymer-ui-ratings.git",
+  "_target": "0.1.3",
+  "_originalSource": "Polymer/polymer-ui-ratings"
+}

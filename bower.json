@@ -1,0 +1,14 @@
+{
+  "name": "polymer-sketchbook",
+  "version": "0.0.0",
+  "dependencies": {
+    "platform": "Polymer/platform#master",
+    "polymer": "Polymer/polymer#master",
+    "polymer-elements": "Polymer/polymer-elements#~0.1.3",
+    "polymer-ui-elements": "Polymer/polymer-ui-elements#~0.1.3"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "polymer": "0.1.3"
+  }
+}

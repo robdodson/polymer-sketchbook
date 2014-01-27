@@ -1,0 +1,20 @@
+{
+  "name": "polymer-ui-field",
+  "private": true,
+  "dependencies": {
+    "polymer-ui-icon": "Polymer/polymer-ui-icon#0.1.3",
+    "polymer": "Polymer/polymer#0.1.3",
+    "polymer-flex-layout": "Polymer/polymer-flex-layout#0.1.3"
+  },
+  "version": "0.1.3",
+  "homepage": "https://github.com/Polymer/polymer-ui-field",
+  "_release": "0.1.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.3",
+    "commit": "967096cb6647b414b9055754293077eeade327f6"
+  },
+  "_source": "git://github.com/Polymer/polymer-ui-field.git",
+  "_target": "0.1.3",
+  "_originalSource": "Polymer/polymer-ui-field"
+}

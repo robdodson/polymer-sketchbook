@@ -1,0 +1,9 @@
+{
+  "name": "polymer-ui-ratings",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#0.1.3",
+    "polymer-ui-theme-aware": "Polymer/polymer-ui-theme-aware#0.1.3"
+  },
+  "version": "0.1.3"
+}

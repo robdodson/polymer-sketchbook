@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import"
+          href="../bower_components/polymer-animation/polymer-animation.html">
+  </head>
+  <body>
+    <style>
+    #foo {
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+    </style>
+
+    <div id="foo"></div>
+
+    <!-- Note that fill is used so the animation takes affect after it finishes -->
+    <polymer-animation id="fadeout" duration="1" fill="forwards">
+      <polymer-animation-keyframe>
+        <polymer-animation-prop name="opacity" value="1">
+        </polymer-animation-prop>
+      </polymer-animation-keyframe>
+      <polymer-animation-keyframe>
+        <polymer-animation-prop name="opacity" value="0">
+        </polymer-animation-prop>
+      </polymer-animation-keyframe>
+    </polymer-animation>
+
+    <script>
+    'use strict';
+    document.addEventListener('WebComponentsReady', function () {
+      var foo = document.querySelector('#foo');
+      var animation = document.querySelector('#fadeout');
+      animation.target = foo;
+      animation.play();
+    });
+    </script>
+  </body>
+</html>
