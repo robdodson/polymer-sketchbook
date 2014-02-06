@@ -8,31 +8,34 @@
   <body>
     <style>
     #foo {
-      width: 100px;
-      height: 100px;
-      background: red;
+      width: 130px;
+      color: white;
+      font-size: 100px;
+      background: tomato;
+      text-align: center;
+      font-family: 'Helvetica';
+      font-weight: bold;
     }
     </style>
 
-    <div id="foo"></div>
+    <div id="foo">P</div>
 
-    <!-- Note that fill is used so the animation takes affect after it finishes -->
-    <polymer-animation id="fadeout" duration="1" fill="forwards">
+    <polymer-animation duration="1" direction="alternate">
       <polymer-animation-keyframe>
-        <polymer-animation-prop name="opacity" value="1">
+        <polymer-animation-prop name="transform" value="rotateX(0deg)">
         </polymer-animation-prop>
       </polymer-animation-keyframe>
       <polymer-animation-keyframe>
-        <polymer-animation-prop name="opacity" value="0">
+        <polymer-animation-prop name="transform" value="rotateX(360deg)">
         </polymer-animation-prop>
       </polymer-animation-keyframe>
     </polymer-animation>
 
     <script>
-    'use strict';
     document.addEventListener('WebComponentsReady', function () {
+      'use strict';
       var foo = document.querySelector('#foo');
-      var animation = document.querySelector('#fadeout');
+      var animation = document.querySelector('polymer-animation');
       animation.target = foo;
       animation.play();
     });

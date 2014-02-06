@@ -1,0 +1,68 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import"
+    href="../../bower_components/polymer-media-query/polymer-media-query.html">
+
+<polymer-element name="polymer-table" extends="table">
+  <template bind if="{{isMobile}}">
+    <style>
+      :host.mobile,
+      :host.mobile thead,
+      :host.mobile tbody,
+      :host.mobile th,
+      :host.mobile td,
+      :host.mobile tr {
+        display: block;
+      }
+
+      /* Hide table headers (but not display: none;, for accessibility) */
+      :host.mobile th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      :host.mobile td {
+        /* Behave  like a "row" */
+        position: relative;
+        padding-left: 40%;
+      }
+
+      :host.mobile td:before {
+        /* Now like a table header */
+        position: absolute;
+        left: 0;
+        width: 35%;
+        padding-right: 10px;
+      }
+    </style>
+    <content select="thead" id="header"></content>
+    <content select="tbody"></content>
+  </template>
+  <script>
+    Polymer('polymer-table', {
+      ready: function () {
+        var css = [];
+        var style = document.createElement('style');
+
+        var nodeList = this.$.header.getDistributedNodes();
+        var thList = nodeList[0].children[0].children;
+        [].forEach.call(thList, function (th, i) {
+          css.push(
+            ':host.mobile td:nth-of-type('+(i + 1)+'):before {'+
+              'content: "'+th.textContent+'";'+
+            '}'
+          );
+        });
+
+        css = css.join('\n');
+        if (style.styleSheet) {
+          style.styleSheet.cssText = css;
+        } else {
+          style.appendChild(document.createTextNode(css));
+        }
+
+        document.head.appendChild(style);
+      }
+    });
+  </script>
+</polymer-element>

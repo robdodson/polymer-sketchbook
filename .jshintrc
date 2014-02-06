@@ -20,6 +20,8 @@
   "jquery": true,
   "newcap": false,
   "globals": {
-    "Polymer": true
+    "Polymer": true,
+    "Animation": true,
+    "ParGroup": true
   }
 }
