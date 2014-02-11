@@ -18,7 +18,7 @@
     };
 
     var foo = document.getElementById('foo');
-    foo.bind('title', obj, 'path.to.bar');
+    foo.bind('title', new PathObserver(obj, 'path.to.bar'));
     </script>
   </body>
 </html>
