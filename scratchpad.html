@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Custom Element</title>
+  </head>
+  <body>
+    <!-- Create a template for the content inside your element -->
+    <template>
+      <h1>Hello from XFoo</h1>
+    </template>
+
+    <!-- Register your new element -->
+    <script>
+    var tmpl = document.querySelector('template');
+
+    var XFooProto = Object.create(HTMLElement.prototype);
+
+    XFooProto.createdCallback = function() {
+      var root = this.createShadowRoot();
+      root.appendChild(document.importNode(tmpl.content, true));
+    };
+
+    var XFoo = document.registerElement('x-foo', {
+      prototype: XFooProto
+    });
+    </script>
+
+    <!-- Use the element you've just registered as a tag -->
+    <x-foo></x-foo>
+
+    <!-- OR, create an instance using JavaScript -->
+    <script>
+    var el = document.createElement('x-foo');
+    document.body.appendChild(el);
+    </script>
+  </body>
+</html>

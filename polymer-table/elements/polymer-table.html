@@ -2,32 +2,32 @@
 <link rel="import"
     href="../../bower_components/polymer-media-query/polymer-media-query.html">
 
-<polymer-element name="polymer-table" extends="table">
-  <template bind if="{{isMobile}}">
+<polymer-element name="polymer-table" extends="table" attributes="mobile">
+  <template>
     <style>
-      :host.mobile,
-      :host.mobile thead,
-      :host.mobile tbody,
-      :host.mobile th,
-      :host.mobile td,
-      :host.mobile tr {
+      :host([mobile]),
+      :host([mobile]) thead,
+      :host([mobile]) tbody,
+      :host([mobile]) th,
+      :host([mobile]) td,
+      :host([mobile]) tr {
         display: block;
       }
 
       /* Hide table headers (but not display: none;, for accessibility) */
-      :host.mobile th {
+      :host([mobile]) th {
         position: absolute;
         top: -9999px;
         left: -9999px;
       }
 
-      :host.mobile td {
+      :host([mobile]) td {
         /* Behave  like a "row" */
         position: relative;
         padding-left: 40%;
       }
 
-      :host.mobile td:before {
+      :host([mobile]) td:before {
         /* Now like a table header */
         position: absolute;
         left: 0;
@@ -35,34 +35,39 @@
         padding-right: 10px;
       }
     </style>
+    <polymer-media-query query="max-width:640px" queryMatches="{{mobile}}">
+    </polymer-media-query>
     <content select="thead" id="header"></content>
     <content select="tbody"></content>
   </template>
   <script>
+  (function() {
+    function shim_(cssText, scope) {
+      var styles = Platform.ShadowCSS.shimCssText(cssText, scope);
+      Platform.ShadowCSS.addCssToDocument(styles);
+    }
+
     Polymer('polymer-table', {
-      ready: function () {
+      attached: function () {
         var css = [];
         var style = document.createElement('style');
 
         var nodeList = this.$.header.getDistributedNodes();
         var thList = nodeList[0].children[0].children;
-        [].forEach.call(thList, function (th, i) {
+        Array.prototype.forEach.call(thList, function(th, i) {
+          Platform.ShadowCSS.shimStyling();
           css.push(
-            ':host.mobile td:nth-of-type('+(i + 1)+'):before {'+
+            ':host([mobile]) td:nth-of-type('+(i + 1)+'):before {'+
               'content: "'+th.textContent+'";'+
             '}'
           );
         });
-
         css = css.join('\n');
-        if (style.styleSheet) {
-          style.styleSheet.cssText = css;
-        } else {
-          style.appendChild(document.createTextNode(css));
-        }
-
-        document.head.appendChild(style);
+        var unique = Math.random();
+        this.setAttribute('scope', unique);
+        shim_(css, '[scope="'+unique+'"]');
       }
     });
+  })();
   </script>
 </polymer-element>
