@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/polymer/polymer.html">
+    <link rel="import" href="../components/paper-shadow/paper-shadow.html">
+    <style>
+    *, *::after, *::before {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: 'Roboto';
+      margin: 0;
+      background: #00BED8;
+    }
+    .card {
+      width: 1200px;
+      height: auto;
+      border-radius: 2px;
+      position: relative;
+      color: #616161;
+      fill: #616161;
+      position: relative;
+      bottom: -200px;
+    }
+    .card, img {
+      /*border-radius: 2px;*/
+    }
+    </style>
+  </head>
+  <body layout horizontal center center-justified>
+    <div class="card">
+      <img src="sampler.png" width="100%">
+      <paper-shadow z="0"></paper-shadow>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="x-circle.html">
+<link rel="import" href="x-rect.html">
+<polymer-element name="x-banner" noscript>
+  <template>
+    <style>
+      :host {
+        display: block;
+        background: #ffffff;
+      }
+
+      x-rect {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      @media screen and (max-width: 500px) {
+        x-rect {
+          width: 50px;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+    </style>
+
+    <div layout vertical center>
+      <x-circle></x-circle>
+      <div layout flex horizontal>
+        <x-rect flex></x-rect>
+        <x-rect flex></x-rect>
+        <x-rect flex></x-rect>
+        <x-rect flex></x-rect>
+      </div>
+    </div>
+  </template>
+</polymer-element>

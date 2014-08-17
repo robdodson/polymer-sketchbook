@@ -1,0 +1,24 @@
+*, *::after, *::before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 0 10%;
+}
+
+.main {
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .main {
+    width: 75%;
+    float: left;
+  }
+}

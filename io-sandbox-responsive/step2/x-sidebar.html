@@ -1,0 +1,23 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<polymer-element name="x-sidebar" noscript>
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+      }
+
+      @media screen and (min-width: 500px) {
+        .sidebar {
+          width: 25%;
+          float: left;
+        }
+      }
+    </style>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contacts</li>
+    </ul>
+  </template>
+</polymer-element>

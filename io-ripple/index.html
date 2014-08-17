@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/polymer/polymer.html">
+    <link rel="import" href="../components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="../components/paper-shadow/paper-shadow.html">
+    <style>
+    body {
+      font-family: 'Roboto';
+    }
+    .gallery {
+      width: 400px;
+      height: 620px;
+    }
+    .card {
+      display: inline-block;
+      position: relative;
+      width: 150px;
+      height: 139px;
+      margin: 4px;
+      overflow: hidden;
+    }
+    .fit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <template is="auto-binding">
+      <div class="gallery">
+        <template repeat="{{item in items}}">
+          <div class="card" style="background: {{item.background}};">
+            <img src="{{item.img}}">
+            <paper-ripple class="fit" style="color: {{item.ripple}}">
+            </paper-ripple>
+          </div>
+        </template>
+      </div>
+    </template>
+
+    <script>
+    document.addEventListener('template-bound', function(e) {
+      var tmpl = e.target;
+
+      tmpl.items = [
+        {img: 'images/icons/knowledge-01.svg',
+         background: '#FFFF8D', ripple: '#00BCD4'},
+        {img: 'images/icons/science-01.svg',
+         background: '#B9F6CA', ripple: '<div id="673AB7"></div>'},
+        {img: 'images/icons/tvmovies-01.svg',
+         background: '#B388FF', ripple: '#E91E63'},
+        {img: 'images/icons/geography-01.svg',
+         background: '#FF8A80', ripple: '#673AB7'}
+      ];
+    });
+    </script>
+  </body>
+</html>

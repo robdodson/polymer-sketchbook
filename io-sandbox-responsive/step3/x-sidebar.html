@@ -1,0 +1,51 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/core-media-query/core-media-query.html">
+<polymer-element name="x-sidebar">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+        background: white;
+        border-radius: 2px;
+      }
+
+      :host([expand]) {
+        width: 25%;
+        float: left;
+      }
+      
+      ul {
+        list-style-type: none;
+        margin: 5px 0;
+        padding: 0;
+      }
+
+      li {
+        background: #EEE;
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+    </style>
+    <core-media-query query="min-width: {{responsiveWidth}}"
+                      queryMatches="{{expand}}">
+    </core-media-query>
+    
+    <template if="{{expand}}">
+      <img src="../images/tvmovies.png" alt="tv and movies" width="100%">
+    </template>
+    <ul>
+      <li>Blog</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </template>
+  <script>
+  Polymer('x-sidebar', {
+    publish: {
+      responsiveWidth: '640px',
+      expand: {value: false, reflect: true}
+    }
+  });
+  </script>
+</polymer-element>

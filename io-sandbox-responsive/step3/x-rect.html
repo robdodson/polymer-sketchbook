@@ -1,0 +1,22 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<polymer-element name="x-rect" noscript>
+  <template>
+    <style>
+      :host {
+        display: block;
+        border-radius: 2px;
+        width: 70px;
+        height: 15px;
+        background-color: #C3C8CD;
+      }
+
+      :host([light]) {
+        background-color: #CFD3D6;
+      }
+
+      :host([stretch]) {
+        width: 100%;
+      }
+    </style>
+  </template>
+</polymer-element>

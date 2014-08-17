@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/core-style/core-style.html">
+  </head>
+  <body>
+    <core-style id="x-test">
+      :host {
+        display: block;
+        color: white;
+        background-color: steelblue;
+      }
+    </core-style>
+
+    <polymer-element name="x-foo">
+      <template>
+        <core-style ref="x-test"></core-style>
+        <h1>Hello from x-foo</h1>
+      </template>
+      <script>
+        Polymer('x-foo', {
+          
+        });
+      </script>
+    </polymer-element>
+
+    <x-foo></x-foo>
+  </body>
+</html>

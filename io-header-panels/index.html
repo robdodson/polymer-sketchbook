@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="style.css">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/polymer/polymer.html">
+    <link rel="import" href="../components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="../components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="../components/core-toolbar/core-toolbar.html">
+    <style>
+    html, body {
+      font-family: 'Roboto';
+      height: 100%;
+      margin: 0;
+    }
+    core-header-panel {
+      height: 100%;
+    }
+    core-toolbar {
+      font-family: 'Roboto';
+      background: #00BCD4;
+      fill: white;
+      color: white;
+    }
+    </style>
+  </head>
+  <body>
+    <core-header-panel mode="waterfall-tall">;
+      <core-toolbar class="tall animate">
+        <core-icon-button icon="menu"></core-icon-button>
+        I/O 2014
+      </core-toolbar>
+      <div class="container banner-container">
+        <div class="banner" layout vertical center>
+          <div class="circle"></div>
+          <div layout flex horizontal>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container quote-container">
+        <div class="quote" layout vertical center>
+          <div class="rect quote dark"></div>
+          <div class="rect quote light"></div>
+          <div class="rect quote light"></div>
+        </div>
+      </div>
+      <div class="container blog-container">
+        <div class="photo"></div>
+        <div class="rect blog light"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+      </div>
+      <div class="container quote-container">
+        <div class="quote" layout vertical center>
+          <div class="rect quote dark"></div>
+          <div class="rect quote light"></div>
+          <div class="rect quote light"></div>
+        </div>
+      </div>
+      <div class="container blog-container">
+        <div class="photo"></div>
+        <div class="rect blog light"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+      </div>
+      <div class="container banner-container">
+        <div class="banner" layout vertical center>
+          <div class="circle"></div>
+          <div layout flex horizontal>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+            <div flex class="rect"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container quote-container">
+        <div class="quote" layout vertical center>
+          <div class="rect quote dark"></div>
+          <div class="rect quote light"></div>
+          <div class="rect quote light"></div>
+        </div>
+      </div>
+      <div class="container blog-container">
+        <div class="photo"></div>
+        <div class="rect blog light"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+        <div class="rect blog stretch"></div>
+      </div>
+    </core-header-panel>
+  </body>
+</html>

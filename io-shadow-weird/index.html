@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/polymer/polymer.html">
+    <link rel="import" href="../components/paper-shadow/paper-shadow.html">
+    <style>
+    html, body {
+      height: 100%;
+      font-family: 'Roboto';
+      background: #FBE9E7;
+    }
+    .gallery {
+      width: 400px;
+      height: 620px;
+    }
+    .card {
+      display: inline-block;
+      position: relative;
+      width: 150px;
+      height: 139px;
+      margin: 4px;
+      overflow: hidden;
+    }
+    .fit {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    </style>
+  </head>
+  <body layout vertical center center-justified>
+    <polymer-element name="x-foo" on-click="{{toggle}}" layout vertical center center-justified>
+      <template>
+        <style>
+          :host {
+            position: relative;
+            display: block;
+            width: 50%;
+            height: 50%;
+            /*background: white;*/
+            border-radius: 50%;
+          }
+        </style>
+        <content></content>
+        <paper-shadow id="shadow"
+          target="{{}}"
+          z="{{count}}" 
+          animated>
+        </paper-shadow>
+      </template>
+      <script>
+        (function(window, document, undefined) {
+          var count = 0;
+
+          Polymer('x-foo', {
+            ready: function() {
+              this.tick = 0;
+              this.count = count++;
+
+              // setInterval(function() {
+              //   this.count++;
+              //   if (this.count === 5) {
+              //     this.count = 0;
+              //   }
+              //   this.$.shadow.z = this.count;
+              // }.bind(this), 140);
+
+              var curve = function() {
+                requestAnimationFrame(curve);
+                this.tick += 0.02;
+                // var x = Math.cos(this.tick) * 100 + 'px';
+                var x = Math.cos(this.tick) * 100 + 'px';
+                var y = Math.sin(this.tick) * 100 + 'px';
+                this.style.webkitTransform = 'translate3d(' + x + ',' + y + ',0)';
+              }.bind(this);
+              requestAnimationFrame(curve);
+            },
+            toggle: function() {
+              this.$.shadow.z = this.$.shadow.z === 0 ? 5 : 0;
+            }
+          });
+        })(window, document);
+      </script>
+    </polymer-element>
+
+    <x-foo style="width: 800px; height: 800px; background: #FFCCBC;">
+      <x-foo style="background: #FFAB91;">
+        <x-foo style="background: #FF8A65;">
+          <x-foo style="background: #FF7043;">
+            <x-foo style="background: #FF5722"></x-foo>
+          </x-foo>
+        </x-foo>
+      </x-foo>
+    </x-foo>
+  </body>
+</html>

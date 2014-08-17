@@ -1,0 +1,39 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="x-rect.html">
+<polymer-element name="x-quote" noscript>
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      x-rect {
+        height: 20px;
+        width: 200px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      x-rect[light] {
+        width: 350px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      @media screen and (max-width: 500px) {
+        x-rect {
+          width: 150px;
+        }
+
+        x-rect[light] {
+          width: 250px;
+        }
+      }
+    </style>
+    <div layout vertical center>
+      <x-rect></x-rect>
+      <x-rect light></x-rect>
+      <x-rect light></x-rect>
+    </div>
+  </template>
+</polymer-element>

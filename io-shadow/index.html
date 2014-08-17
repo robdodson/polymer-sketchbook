@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../components/platform/platform.js"></script>
+    <link rel="import" href="../components/paper-shadow/paper-shadow.html">
+    <link rel="import" href="../components/paper-item/paper-item.html">
+    <link rel="import" href="../components/core-selector/core-selector.html">
+    <style>
+      *, *::after, *::before {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin-top: 100px;
+        background: #FAFAFA;
+      }
+      .card {
+        width: 512px;
+        height: 447px;
+        border-radius: 2px;
+        position: relative;
+        color: #616161;
+        fill: #616161;
+      }
+      .card-header {
+        height: 176px;
+        background-color: #1de9b6;
+        font-size: 18px;
+      }
+      .card-body {
+        padding: 40px 24px 48px;
+      }
+      paper-item {
+        -webkit-transition: background-color 1s;
+        transition: background-color 1s;
+      }
+      paper-item[active] {
+        background-color: #1de9b6;
+      }
+      .card /deep/ paper-ripple {
+        color: #1de9b6;
+      }
+    </style>
+  </head>
+  <body layout horizontal center-justified center>
+    <div class="card">
+      <div class="card-header" layout horizontal center center-justified>In which American State did chilli con carne originate?</div>
+      <div class="card-body">
+        <core-selector>
+          <paper-item>A. New Mexico</paper-item>
+          <paper-item>B. Louisiana</paper-item>
+          <paper-item>C. Arizona</paper-item>
+          <paper-item>D. Texas</paper-item>
+        </core-selector>
+      </div>
+      <paper-shadow z="1"></paper-shadow>
+    </div>
+
+    <script>
+    document.addEventListener('polymer-ready', function(e) {
+      // Set initial shadow target
+      var card = document.querySelector('.card');
+      var shadow = document.querySelector('paper-shadow');
+      shadow.target = card;
+      shadow.animated = true;
+
+      card.addEventListener('mouseenter', function(e) {
+        shadow.z = 5;
+      });
+      card.addEventListener('mouseleave', function(e) {
+        shadow.z = 1;
+      });
+      card.addEventListener('click', function(e) {
+        // shadow.z = 5;
+        // card.classList.add('complete');
+        // setTimeout(function() {
+          // shadow.z = 1;
+        // }, 1000);
+      });
+    });
+    </script>
+  </body>
+</html>

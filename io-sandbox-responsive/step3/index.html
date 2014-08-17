@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>basic sketch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <script src="../../components/platform/platform.js"></script>
+    <link rel="import" href="../../components/polymer/polymer.html">
+    <link rel="import" href="x-sidebar.html">
+    <link rel="import" href="x-banner.html">
+    <link rel="import" href="x-quote.html">
+    <link rel="import" href="x-article.html">
+  </head>
+  <body unresolved>
+    <div class="container">
+      <h1>Cat Showz!</h1>
+      <x-sidebar responsiveWidth="900px"></x-sidebar>
+      <div class="main">
+        <div class="block">
+          <x-article></x-article>
+        </div>
+        <div class="block dark">
+          <x-quote></x-quote>
+        </div>
+        <div class="block">
+          <x-banner></x-banner>
+        </div>
+        <div class="block">
+          <x-article></x-article>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
