@@ -7,7 +7,8 @@
     "polymer": "Polymer/polymer#^0.4.0",
     "Faker": "~2.0.0",
     "core-list": "Polymer/core-list#56d998e834a880a58a705ae7a6b0ddb7967f8864",
-    "core-image": "Polymer/core-image#~0.4.2"
+    "core-image": "Polymer/core-image#~0.4.2",
+    "swipeable-card": "PolymerLabs/swipeable-card#master"
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"

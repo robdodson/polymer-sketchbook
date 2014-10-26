@@ -1,55 +1,45 @@
 body {
+  font-family: "Roboto", "Helvetica", sans-serif;
+  background: #EEEEEE;
+}
+.core-header {
+  position: relative;
+  bottom: -150px;
+  margin-top: -150px;
+  height: 150px;
+  background-image: url(http://lh5.ggpht.com/6rLbkZWhGVPxAVCosBf3AMhEtiie5jUl9qAfOS0HV6bExLpNOmnwezZnAlHwDA=w9999-h9999);
+  background-size: contain;
+}
+core-toolbar {
+  margin: 14px 14px 100px;
+  border-radius: 2px;
   background: #FFFFFF;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  color: #616161;
 }
-core-scaffold::shadow core-toolbar {
-  background-color: #4285F4;
+.logo {
+  height: 25px;
+  padding: 4px 0 0;
+  opacity: 0.5;
 }
-.row {
-  padding: 18px 16px;
-  border-bottom: 1px solid #E6E6E6;
-  background-color: #FFFFFF;
-}
-.row .avatar {
-  width: 45px;
-  height: 45px;
-}
-.row core-image {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: lightgray;
-}
-.column {
-  margin-left: 18px;
-}
-.column > * {
-  line-height: 1;
-  margin: 0 0 8px;
-}
-.column h3 {
-  font-size: 16px;
-}
-.column .sender {
-  font-size: 13px;
-}
-.column .body {
-  color: #9B9B9B;
-  font-size: 13px;
-  margin-bottom: 0;
-}
-paper-fab {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background-color: #DB4437;
-  color: #FFFFFF;
-}
-
-// Helpers
-.truncate {
-  white-space: nowrap;
+// Cards
+.item {
+  box-sizing: border-box;
+  padding: 4px;
+  cursor: default;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+.card {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 26px;
+  font-weight: 300;
+  margin: 0;
+  padding-left: 22px;
+  padding-right: 22px;
 }

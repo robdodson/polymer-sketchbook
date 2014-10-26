@@ -2,8 +2,167 @@
   'use strict';
 
   document.addEventListener('polymer-ready', function() {
-    // Perform some behaviour
-    console.log('Polymer is ready to rock!');
+    var list = document.querySelector('core-list');
+    var hPanel = document.querySelector('core-header-panel');
+    list.scrollTarget = hPanel.scroller;
+    list.data = [
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      },
+      {
+        title: 'Nearby Events',
+        events: [
+          {
+            name: 'SF Mad Dash',
+            location: 'Golden Gate Park Polo Field Stables',
+            date: 'Oct 28, 8:00 PM',
+            category: 'Sports',
+            thumbnail: 'http://lorempixel.com/50/50/'
+          }
+        ]
+      }
+    ];
   });
 
 // wrap document so it plays nice with other libraries

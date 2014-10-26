@@ -20,56 +20,42 @@
 </head>
 
 <body unresolved fullbleed fit layout vertical>
-  <core-scaffold>
-    <!-- Sidebar -->
-    <core-header-panel navigation flex mode="seamed">
-      <core-toolbar>Menu</core-toolbar>
-      <core-menu>
-        <core-item icon="settings" label="item1"></core-item>
-        <core-item icon="settings" label="item2"></core-item>
-      </core-menu>
-    </core-header-panel>
 
-    <!-- Primary toolbar -->
-    <div tool flex>Inbox</div>
-    <core-icon-button icon="search" tool></core-icon-button>
-
-    <!-- Primary app content -->
+  <core-header-panel flex mode="scroll">
+    <div class="core-header"></div>
+    <core-toolbar class="core-narrow">
+      <paper-icon-button icon="menu"></paper-icon-button>
+      <div flex layout vertical center-justified start>
+        <img class="logo" src="http://i.stack.imgur.com/dmcKW.png" alt="Google">
+      </div>
+      <paper-icon-button icon="av:mic"></paper-icon-button>
+    </core-toolbar>
     <div fit layout vertical>
-      <core-list flex>
+      <core-list id="list" data="{{data}}" flex on-swipeable-card-swipe-away="{{deleteCard}}">
         <template>
-          <div class="row" layout horizontal start>
-            <div class="avatar">
-              <core-image src="{{model.avatar}}"
-                          preload sizing="cover"></core-image>
-            </div>
-            <div class="column" layout vertical>
-              <h3 class="truncate">{{model.subject}}</h3>
-              <div class="sender">{{model.name}}</div>
-              <div class="body truncate">{{model.body}}</div>
-            </div>
+          <div class="item">
+            <swipeable-card class="card" swiped="{{model.swiped}}">
+
+              <h3>Nearby Events</h3>
+              <template repeat="{{event in model.events}}">
+                <div class="event" layout horizontal>
+                  <div layout vertical>
+                    <div class="event-name">{{event.name}}</div>
+                    <div class="event-location">{{event.location}}</div>
+                    <div class="event-date">{{event.date}}</div>
+                    <div class="event-category">{{event.category}}</div>
+                  </div>
+                  <img class="event-thumb" src="{{event.thumbnail}}"
+                       alt="{{event.name}}">
+                </div>
+              </template>
+
+            </swipeable-card>
           </div>
         </template>
       </core-list>
     </div>
-    <paper-fab icon="add"></paper-fab>
-  </core-scaffold>
-
-  <script>
-  document.addEventListener('polymer-ready', function() {
-    var list = document.querySelector('core-list');
-    var data = [];
-    for (var i = 0; i < 300; i++) {
-      data.push({
-        name: faker.name.findName(),
-        avatar: faker.image.avatar(),
-        subject: faker.company.catchPhrase(),
-        body: faker.company.catchPhrase()
-      });
-    }
-    list.data = data;
-  });
-  </script>
+  </core-header-panel>
 
   <!-- build:js scripts/app.js -->
   <script src="bower_components/Faker/build/build/faker.js"></script>
