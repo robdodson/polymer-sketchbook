@@ -1,5 +1,5 @@
 {
-  "name": "fowa-core-list",
+  "name": "fowa-contacts",
   "version": "0.0.0",
   "dependencies": {
     "core-elements": "Polymer/core-elements#^0.4.0",
