@@ -21,28 +21,35 @@
 
 <body unresolved fullbleed fit layout vertical>
 
-  <core-list flex>
-    <template>
-      <div class="row" layout horizontal center>
-        <core-image src="{{model.avatar}}" preload sizing="cover"></core-image>
-        <div flex>{{model.name}}</div>
-        <core-icon icon="chevron-right"></core-icon>
-      </div>
-    </template>
-  </core-list>
+  <core-header-panel flex mode="scroll">
+    <core-toolbar>My App</core-toolbar>
+    <div layout vertical fit>
+      <core-list flex>
+        <template>
+          <div class="row" layout horizontal center>
+            <core-image src="{{model.avatar}}" preload sizing="cover"></core-image>
+            <div flex>{{model.name}}</div>
+            <core-icon icon="chevron-right"></core-icon>
+          </div>
+        </template>
+      </core-list>
+    </div>
+  </core-header-panel>
 
   <script>
-    document.addEventListener('polymer-ready', function() {
-      var list = document.querySelector('core-list');
-      var data = [];
-      for(var i = 0; i < 300; i++) {
-        data.push({
-          name: faker.name.findName(),
-          avatar: faker.image.avatar()
-        });
-      }
-      list.data = data;
-    });
+  document.addEventListener('polymer-ready', function() {
+    var list = document.querySelector('core-list');
+    var header = document.querySelector('core-header-panel');
+    list.scrollTarget = header.scroller;
+    var data = [];
+    for (var i = 0; i < 300; i++) {
+      data.push({
+        name: faker.name.findName(),
+        avatar: faker.image.avatar()
+      });
+    }
+    list.data = data;
+  });
   </script>
 
   <!-- build:js scripts/app.js -->
