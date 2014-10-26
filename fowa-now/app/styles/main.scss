@@ -1,0 +1,55 @@
+body {
+  background: #FFFFFF;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+core-scaffold::shadow core-toolbar {
+  background-color: #4285F4;
+}
+.row {
+  padding: 18px 16px;
+  border-bottom: 1px solid #E6E6E6;
+  background-color: #FFFFFF;
+}
+.row .avatar {
+  width: 45px;
+  height: 45px;
+}
+.row core-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: lightgray;
+}
+.column {
+  margin-left: 18px;
+}
+.column > * {
+  line-height: 1;
+  margin: 0 0 8px;
+}
+.column h3 {
+  font-size: 16px;
+}
+.column .sender {
+  font-size: 13px;
+}
+.column .body {
+  color: #9B9B9B;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+paper-fab {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background-color: #DB4437;
+  color: #FFFFFF;
+}
+
+// Helpers
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
