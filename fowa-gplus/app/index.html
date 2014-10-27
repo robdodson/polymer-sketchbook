@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Polymer WebApp</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <script src="bower_components/platform/platform.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Faker/0.7.2/MinFaker.js">
+  </script>
+  <!-- build:vulcanized elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <!-- endbuild-->
+</head>
+
+<body unresolved fullbleed>
+  <template is="auto-binding">
+    <core-scaffold>
+      <core-header-panel navigation flex mode="seamed">
+        <core-toolbar>robdodson@google.com</core-toolbar>
+        <core-menu theme="core-light-theme">
+          <core-item icon="settings" label="item1"></core-item>
+          <core-item icon="settings" label="item2"></core-item>
+        </core-menu>
+      </core-header-panel>
+      <div tool>
+        <span flex>All circles</span>
+        <core-icon icon="social:people" on-tap="{{showPeople}}"></core-icon>
+      </div>
+      <core-animated-pages fit layout vertical
+                           selected="{{selected}}"
+                           transitions="slide-from-right">
+          <!-- Gotta include the core-selected class, otherwise
+          core-animated-pages will display:none the children and screw up
+          the list's ability to calculate its height -->
+          <section fit class="core-selected">
+            <gplus-list></gplus-list>
+          </section>
+          <section>
+            <div>Hello World</div>
+          </section>
+      </core-animated-pages>
+      <paper-fab icon="create"></paper-fab>
+    </core-scaffold>
+  </template>
+
+  <!-- build:js scripts/app.js -->
+  <script src="scripts/app.js"></script>
+  <!-- endbuild-->
+</body>
+
+</html>

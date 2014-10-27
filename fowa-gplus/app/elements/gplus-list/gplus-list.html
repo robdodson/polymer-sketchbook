@@ -1,0 +1,115 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/swipeable-card/swipeable-card.html">
+<link rel="import" href="../../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../../bower_components/core-icons/social-icons.html">
+<link rel="import" href="../../bower_components/core-icons/image-icons.html">
+<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/core-image/core-image.html">
+
+<polymer-element name="gplus-list" layout vertical>
+  <template>
+    <link rel="stylesheet" href="gplus-list.css">
+    <core-list id="list" data="{{data}}" flex
+               on-swipeable-card-swipe-away="{{deleteCard}}">
+      <template>
+        <div class="item">
+          <swipeable-card class="card" swiped="{{model.swiped}}">
+
+            <div class="info" layout horizontal center>
+
+              <div class="avatar">
+                <img src="{{model.avatar}}" alt="{{model.name}}">
+              </div>
+
+              <div class="meta" layout vertical>
+                <a class="username" href="#">{{model.name}}</a>
+                <div class="circle-time" layout horizontal center>
+                  <core-icon icon="social:people"></core-icon>
+                  <div class="timestamp">22 hours ago</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="post">
+              {{model.body}}
+            </div>
+
+            <div class="media" hidden?={{!model.hasImage}}>
+              <core-image style="width:{{model.imageWidth}}; height:{{model.imageHeight}};" sizing="cover" preload src="{{model.imageSrc}}"></core-image>
+            </div>
+
+            <div class="controls" layout horizontal>
+              <div class="icon-button">
+                <core-icon icon="image:exposure-plus-1"></core-icon>
+              </div>
+              <div class="icon-button">
+                <core-icon icon="reply"></core-icon>
+              </div>
+              <span flex></span>
+              <div class="icon-button">
+                <core-icon icon="communication:messenger"></core-icon>
+              </div>
+            </div>
+
+          </swipeable-card>
+        </div>
+      </template>
+    </core-list>
+
+  </template>
+  <script>
+    Polymer({
+      ready: function() {
+        this.data = this.generateData();
+      },
+      generateData: function() {
+        var data = [];
+        for (var i = 0; i < 100; i++) {
+          var post = {};
+          post.name = Faker.Name.findName();
+          post.avatar = Faker.Image.avatar();
+          post.body = capitalize(Faker.Lorem.paragraph());
+          // This is ugly...
+          if (Math.ceil(Math.random() * 100) > 35) {
+            var image = randomImg();
+            post.hasImage = true;
+            post.imageSrc = image.src;
+            post.imageWidth = image.width;
+            post.imageHeight = image.height;
+          } else {
+            post.hasImage = false;
+            post.imageSrc = '';
+            post.imageWidth = '';
+            post.imageHeight = '';
+          }
+          data.push(post);
+        }
+
+        function capitalize(str) {
+          return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function randomImg() {
+          var width = '350';
+          var height = Math.ceil(Math.random() * (360 - 200) + 200);
+
+          return {
+            src: 'http://lorempixel.com/' + width + '/' + height,
+            width: width + 'px',
+            height: height + 'px'
+          }
+        }
+
+        return data;
+      },
+      deleteCard: function(e) {
+        var index = e.target.templateInstance.model.index;
+        this.async(function() {
+          this.data.splice(index, 1);
+        }.bind(this));
+      }
+    });
+  </script>
+</polymer-element>

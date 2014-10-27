@@ -1,0 +1,23 @@
+body {
+  background: #E5E5E5;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+[navitation] core-toolbar {
+  background-color: #FFFFFF;
+}
+core-scaffold /deep/ [main] core-toolbar {
+  background-color: #DB4437;
+  color: #FFFFFF;
+}
+gplus-list {
+  display: block;
+  height: 100%;
+}
+paper-fab {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background-color: #DB4437;
+  color: #FFFFFF;
+}
